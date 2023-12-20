@@ -1,5 +1,6 @@
-import express from 'express';
+import express, { json } from 'express';
 import { App } from '@octokit/app';
+import { Webhooks } from '@octokit/webhooks';
 
 const app = express();
 const port = 3000;
@@ -7,8 +8,12 @@ const port = 3000;
 const appID = process.env.APP_ID || ''; 
 const privateKey = process.env.PRIVATE_KEY || '';
 
+app.use(json());
 
-const githubApp = new App({ appId: appID, privateKey: privateKey });
+app.post('/webhook', (req, res) => {
+  // Handle the webhook event
+  console.log(req.body);
+});
 
 app.get('/', (req, res) => {
   res.send('Hello, GitHub App!');
