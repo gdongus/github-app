@@ -1,0 +1,7 @@
+1. In the repository that should block others, set up a Jenkins job that uses GitHubCommitStatusSetter to set the commit status based on the result of the job.
+
+2. In the other repositories, go to the settings for the branch that should be protected (usually the main or master branch).
+
+3. Under "Branch protection settings", enable "Require status checks to pass before merging".
+
+4. In the list of status checks, you should see the name of the Jenkins job from the first repository. Enable this status check.
