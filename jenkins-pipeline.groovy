@@ -11,8 +11,8 @@ pipeline {
         always {
             script {
                 // Determine build state based on build result
-                def state = (currentBuild.result == 'SUCCESS') ? 'SUCCESS' : 'FAILURE'
-                def message = (currentBuild.result == 'SUCCESS') ? 'Build succeeded' : 'Build failed'
+                state = (currentBuild.result == 'SUCCESS') ? 'SUCCESS' : 'FAILURE'
+                message = (currentBuild.result == 'SUCCESS') ? 'Build succeeded' : 'Build failed'
                 repos = ['repo1', 'repo2', 'repo3']
                 repos.each { repo ->
                     // Update GitHub commit status
